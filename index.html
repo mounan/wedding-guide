@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Guide - 婚礼指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #f5ebe7 0%, #e8d5d0 100%);
+            min-height: 100vh;
+            color: #6b5d5d;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('imgs/we.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .language-selector {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .language-selector button {
+            background: none;
+            border: none;
+            padding: 4px 8px;
+            margin: 0 3px;
+            cursor: pointer;
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+
+        .language-selector button.active {
+            background: #c4a69d;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            color: #b69b93;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .header .date {
+            font-size: 1.2em;
+            color: #9a8c88;
+            margin-bottom: 8px;
+        }
+
+        .header .couple-names {
+            font-size: 1.5em;
+            color: #8b7e7a;
+        }
+
+        .section {
+            background: rgba(255, 252, 250, 0.95);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: #b69b93;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 1px solid #e8d5d0;
+            padding-bottom: 8px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .info-item strong {
+            color: #8b7e7a;
+        }
+
+        .schedule-item {
+            padding: 10px 0;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-time {
+            font-weight: bold;
+            color: #c4a69d;
+            margin-bottom: 3px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #c4a69d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 8px 8px 8px 0;
+            transition: opacity 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+
+        .dress-code {
+            padding: 12px;
+            border-left: 2px solid #d4b5a7;
+            margin-left: 10px;
+        }
+
+        .transport-option {
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        .qr-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .qr-section img {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #a69590;
+        }
+
+        .heart-divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #d4b5a7;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-selector">
+        <button class="active" onclick="setLanguage('zh')">中文</button>
+        <button onclick="setLanguage('ja')">日本語</button>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="lang-zh">婚礼指南</h1>
+            <h1 class="lang-ja" style="display:none">結婚式案内</h1>
+            <div class="date">2025.10.03</div>
+            <div class="couple-names">♡ Welcome to Our Wedding ♡</div>
+        </div>
+
+        <div class="section">
+            <h2 class="lang-zh">婚礼地点</h2>
+            <h2 class="lang-ja" style="display:none">会場</h2>
+
+            <div class="info-item">
+                <strong class="lang-zh">酒店：</strong>
+                <strong class="lang-ja" style="display:none">ホテル：</strong>
+                <span>Sheraton Grande Tokyo Bay Hotel - Glass Chapel</span>
+            </div>
+
+            <div class="info-item">
+                <strong class="lang-zh">地址：</strong>
+                <strong class="lang-ja" style="display:none">住所：</strong>
+                <span>〒279-0031 千葉県浦安市舞浜1-9</span>
+            </div>
+
+            <div class="info-item">
+                <a href="https://maps.app.goo.gl/Jc4Nqcf68SnLGpkZ8" target="_blank" class="button">
+                    <span class="lang-zh">📍 查看地图</span>
+                    <span class="lang-ja" style="display:none">📍 地図を見る</span>
+                </a>
+                <a href="https://www.marriott.com.cn/hotels/tyosi-sheraton-grande-tokyo-bay-hotel/overview/" target="_blank" class="button">
+                    <span class="lang-zh">🏨 酒店官网</span>
+                    <span class="lang-ja" style="display:none">🏨 ホテル公式サイト</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="lang-zh">婚礼日程</h2>
+            <h2 class="lang-ja" style="display:none">スケジュール</h2>
+
+            <div class="schedule-item">
+                <div class="schedule-time">12:30 - 12:50</div>
+                <div class="lang-zh">宾客到达 - 一楼大堂前台附近集合</div>
+                <div class="lang-ja" style="display:none">ゲスト到着 - 1階ロビーフロント付近集合</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">12:50 - 12:55</div>
+                <div class="lang-zh">宾客入场（工作人员引导）</div>
+                <div class="lang-ja" style="display:none">ゲスト入場（スタッフがご案内）</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">13:00 - 13:30</div>
+                <div class="lang-zh">婚礼仪式</div>
+                <div class="lang-ja" style="display:none">挙式</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">13:30 -</div>
+                <div class="lang-zh">合影留念 & 结束</div>
+                <div class="lang-ja" style="display:none">記念撮影 & お開き</div>
+            </div>
+
+            <button onclick="downloadICS()" class="button">
+                <span class="lang-zh">📅 添加到日历</span>
+                <span class="lang-ja" style="display:none">📅 カレンダーに追加</span>
+            </button>
+        </div>
+
+        <div class="section">
+            <h2 class="lang-zh">交通指南</h2>
+            <h2 class="lang-ja" style="display:none">アクセス</h2>
+
+            <div class="transport-option">
+                <strong class="lang-zh">方式一：酒店班车</strong>
+                <strong class="lang-ja" style="display:none">方法1：ホテルシャトルバス</strong>
+                <div class="info-item">
+                    <div class="lang-zh">从舞浜站（Bus stop C）出发</div>
+                    <div class="lang-ja" style="display:none">舞浜駅（Bus stop C）から</div>
+                    <div class="lang-zh">建议乘坐 <strong>12:20</strong> 班次</div>
+                    <div class="lang-ja" style="display:none">推奨時刻：<strong>12:20</strong></div>
+                </div>
+                <a href="https://grandcafe.sheratontokyobay.com/resourcefiles/pdf/guestbus-en.pdf" target="_blank" class="button">
+                    <span class="lang-zh">🚌 查看班车时刻表</span>
+                    <span class="lang-ja" style="display:none">🚌 バス時刻表を見る</span>
+                </a>
+            </div>
+
+            <div class="transport-option">
+                <strong class="lang-zh">方式二：Disney Resort Line</strong>
+                <strong class="lang-ja" style="display:none">方法2：ディズニーリゾートライン</strong>
+                <div class="info-item">
+                    <div class="lang-zh">从 Resort Gateway Station（舞浜站步行3分钟）</div>
+                    <div class="lang-ja" style="display:none">リゾートゲートウェイ駅から（舞浜駅徒歩3分）</div>
+                    <div class="lang-zh">乘坐至 Bayside Station（酒店步行2分钟）</div>
+                    <div class="lang-ja" style="display:none">ベイサイド駅まで（ホテル徒歩2分）</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="lang-zh">着装建议</h2>
+            <h2 class="lang-ja" style="display:none">ドレスコード</h2>
+
+            <div class="dress-code">
+                <div class="info-item">
+                    <strong class="lang-zh">男士：</strong>
+                    <strong class="lang-ja" style="display:none">男性：</strong>
+                    <span class="lang-zh">西装、领带、白衬衫为佳</span>
+                    <span class="lang-ja" style="display:none">スーツ、ネクタイ、白シャツ</span>
+                </div>
+                <div class="info-item">
+                    <strong class="lang-zh">女士：</strong>
+                    <strong class="lang-ja" style="display:none">女性：</strong>
+                    <span class="lang-zh">优雅连衣裙（请避免纯白色）</span>
+                    <span class="lang-ja" style="display:none">エレガントなドレス（白以外）</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="lang-zh">特别环节</h2>
+            <h2 class="lang-ja" style="display:none">特別プログラム</h2>
+
+            <div class="info-item">
+                <div class="lang-zh">🎵 合唱曲目：《What a Friend We Have in Jesus》</div>
+                <div class="lang-ja" style="display:none">🎵 合唱曲：「What a Friend We Have in Jesus」</div>
+            </div>
+        </div>
+
+        <div class="section qr-section">
+            <h2 class="lang-zh">分享您的美好瞬间</h2>
+            <h2 class="lang-ja" style="display:none">素敵な瞬間をシェア</h2>
+
+            <div class="lang-zh">请扫描下方二维码上传您拍摄的照片</div>
+            <div class="lang-ja" style="display:none">QRコードをスキャンして写真をアップロード</div>
+
+            <img src="imgs/qa.png" alt="Photo Upload QR Code">
+
+            <div class="lang-zh">让我们一起留住这美好的回忆 ♡</div>
+            <div class="lang-ja" style="display:none">美しい思い出を一緒に残しましょう ♡</div>
+        </div>
+
+        <div class="heart-divider">♡ ♡ ♡</div>
+
+        <div class="footer">
+            <div class="lang-zh">期待与您共同见证我们的幸福时刻</div>
+            <div class="lang-ja" style="display:none">私たちの幸せな瞬間を一緒にお祝いください</div>
+        </div>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            const zhElements = document.querySelectorAll('.lang-zh');
+            const jaElements = document.querySelectorAll('.lang-ja');
+            const buttons = document.querySelectorAll('.language-selector button');
+
+            if (lang === 'zh') {
+                zhElements.forEach(el => el.style.display = '');
+                jaElements.forEach(el => el.style.display = 'none');
+                buttons[0].classList.add('active');
+                buttons[1].classList.remove('active');
+            } else {
+                zhElements.forEach(el => el.style.display = 'none');
+                jaElements.forEach(el => el.style.display = '');
+                buttons[1].classList.add('active');
+                buttons[0].classList.remove('active');
+            }
+        }
+
+        function downloadICS() {
+            const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding//Wedding Guide//EN
+BEGIN:VEVENT
+UID:wedding-ceremony@sheratontokyo.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '')}
+DTSTART:20251003T130000
+DTEND:20251003T140000
+SUMMARY:Wedding Ceremony - Glass Chapel
+LOCATION:Sheraton Grande Tokyo Bay Hotel, 〒279-0031 千葉県浦安市舞浜1-9
+DESCRIPTION:Wedding ceremony at Glass Chapel. Please arrive at 1F lobby by 12:50.
+BEGIN:VALARM
+TRIGGER:-PT1H
+DESCRIPTION:Wedding ceremony in 1 hour
+ACTION:DISPLAY
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'wedding-ceremony.ics';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    </script>
+</body>
+</html>
